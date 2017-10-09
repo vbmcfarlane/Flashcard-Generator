@@ -1,0 +1,46 @@
+[
+  {
+    "type": "BasicCard",
+    "front": "Who was the first president of the United States?",
+    "back": "George Washington"
+  },
+  {
+    "type": "BasicCard",
+    "front": "the Second Continental Congress declared a new independent, United States of America",
+    "back": "1776"
+  },
+  {
+    "type": "BasicCard",
+    "front": "Who is the current President of the US?",
+    "back": "Donald J. Trump"
+  },
+  {
+    "type": "ClozeCard",
+    "text": "Christopher Columbus didn't discover America",
+    "cloze": "Christopher Columbus",
+    "partial": "... didn't discover America"
+  },
+  {
+    "type": "ClozeCard",
+    "text": "Hillary Clinton loss the 2016 election and cried",
+    "cloze": "Hillary Clinton",
+    "partial": "... loss the 2016 election and cried"
+  },
+  {
+    "type": "ClozeCard",
+    "text": "George Washington was the 1st president of the United States",
+    "cloze": "George Washington",
+    "partial": "... was the 1st president of the United States"
+  },
+  {
+    "type": "BasicCard",
+    "front": "Thomas Edison was an American inventor and businessman",
+    "back": "Thomas Edison"
+  },
+  {
+    "type": "ClozeCard",
+    "text": "Thomas Edison was an American inventor ans business man",
+    "cloze": "Thomas Edison",
+    "partial": "... was an American inventor ans business man"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "name": "flashcard-generator",
+  "version": "1.0.0",
+  "description": "Creates, displays and display flashcards quiz in Basic and Cloze formats",
+  "main": "flashcards.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbmcfarlane/Flashcard-Generator.git"
+  },
+  "keywords": [
+    "flashcards",
+    "basic",
+    "cloze"
+  ],
+  "author": "vbmcfarlane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vbmcfarlane/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/vbmcfarlane/Flashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0",
+    "requirer": "0.0.4"
+  }
+}
