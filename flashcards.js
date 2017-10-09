@@ -6,6 +6,7 @@ const fs = require("fs");
 
 var selectedCard;
 var playedCard;
+var cozeQuestion;
 var count = 0;
 
  
@@ -35,7 +36,7 @@ function menu() {
             pickCard();
             break; 
         case 'Flash Quiz':
-            console.log("Pick Card from the deck");
+            console.log("Flash Quiz using the deck");
             askQuestions();
             break;        
         case 'Exit':
@@ -48,9 +49,6 @@ function menu() {
             console.log("");
             console.log("Invalid selection: Try again");
             console.log("");
-
-
-            
     }
 
   });
@@ -58,7 +56,6 @@ function menu() {
 }
 
 menu();
-
  
 function createCard() {
     inquirer.prompt([
@@ -78,12 +75,12 @@ function createCard() {
                 {
                     name: "front",
                     type: "input",
-                    message: "Please fill out the front of your card (Your Question)."
+                    message: "Please fill out the front of card (Question)."
                 },
                 {
                     name: "back",
                     type: "input",
-                    message: "Please fill out the back of your card (Your Answer)."
+                    message: "Please fill out the back of your card (Answer)."
                 }
             ]).then(function (bCardData) {
                 var cardObj = {						
@@ -97,7 +94,7 @@ function createCard() {
                     {
                         name: "anotherCard",
                         type: "list",
-                        message: "Do you want to create another card?",
+                        message: "Create another card?",
                         choices: ["Yes", "No"]
                     }
                 ]).then(function (cInput) {				
@@ -163,8 +160,13 @@ function pickQuestions(card) {
         selectedCard = new BasicCard(card.front, card.back);	 
         return selectedCard.front;								 
     } else if (card.type === "ClozeCard") {					 
-        selectedCard = new ClozeCard(card.text, card.cloze)	 
-        return selectedCard.clozeRemoved();					 
+        selectedCard = new ClozeCard(card.text, card.cloze);
+        console.log( "selected coze card = " + JSON.stringify(selectedCard));
+        console.log("");
+     //   return selectedCard.clozeRemoved();	
+        cozeQuestion = card.text;
+          console.log(" *** " +  cozeQuestion);	
+        return card.text.replace(card.cloze, '...')			 
     }
 };
 
@@ -174,20 +176,29 @@ function askQuestions() {
         playedCard = pickQuestions(deck[count]);	 
         inquirer.prompt([							 
             {
+
                 type: "input",
                 message: playedCard,inquirer,
                 name: "question"
             }
-        ]).then(function (answer) {					 
+        ]).then(function (answer) {	
+
         	//if the users answer equals .back or .cloze of the playedCard run a message "You are correct."
             if (answer.question === deck[count].back || answer.question === deck[count].cloze) {
-                console.log("You are correct.");
+                if (answer.question === deck[count].back){ 
+                     console.log("Correct!!, the Answer is  " + deck[count].back);
+                     console.log("");
+                if  (answer.question === deck[count].cloze){
+                    console.log("Correct!!, *** " +  cozeQuestion);
+                    console.log("");
+                  }
+                }
             } else {
             	//check to see if current card is Cloze or Basic
                 if (selectedCard.front !== undefined) {  
-                    console.log("Sorry, the correct answer was " + deck[count].back + ".");  
+                    console.log("Wrong Answer, the correct answer is: " + deck[count].back + ".");  
                 } else { // otherwise it is a Cloze car
-                    console.log("Sorry, the correct answer was " + deck[count].cloze + "."); 
+                    console.log("Wrong Answer, the correct answer is: " + deck[count].cloze + "."); 
                 }
             }
             count++; 		 
@@ -215,17 +226,18 @@ function pickCard() {
         	 
             if (answer.question === deck[randomNumber].back || answer.question === deck[randomNumber].cloze) {
                 console.log("You are correct.");
-                menu();
+         //       menu();
             } else {
             	 
-                if (selectedCard.front !== undefined) { 
-                    console.log("Sorry, the correct answer was " + deck[randomNumber].back + ".");  
-                    menu();
-                } else {  
-                    console.log("Sorry, the correct answer was " + deck[randomNumber].cloze + "."); 
-                    menu();
-                }
+                    if (selectedCard.front !== undefined) { 
+                        console.log("Wrong Answer " + deck[randomNumber].back + ", is the correct answer");  
+             //           menu();
+                    } else {  
+                        console.log("Wrong Answer " + deck[randomNumber].cloze + ", is the correct answer"); 
+                 //       menu();
+                    }
             }
+            menu();
         });
 
 };
