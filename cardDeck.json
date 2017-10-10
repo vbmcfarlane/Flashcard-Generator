@@ -6,13 +6,13 @@
   },
   {
     "type": "BasicCard",
-    "front": "the Second Continental Congress declared a new independent, United States of America",
+    "front": "Year the Second Continental Congress declared a new independent, United States of America",
     "back": "1776"
   },
   {
     "type": "BasicCard",
     "front": "Who is the current President of the US?",
-    "back": "Donald J. Trump"
+    "back": "Donald Trump"
   },
   {
     "type": "ClozeCard",
@@ -22,8 +22,8 @@
   },
   {
     "type": "ClozeCard",
-    "text": "Hillary Clinton loss the 2016 election and cried",
-    "cloze": "Hillary Clinton",
+    "text": "Hilary Clinton loss the 2016 election and cried",
+    "cloze": "Hilary Clinton",
     "partial": "... loss the 2016 election and cried"
   },
   {
@@ -34,7 +34,7 @@
   },
   {
     "type": "BasicCard",
-    "front": "Thomas Edison was an American inventor and businessman",
+    "front": " was an American inventor and businessman",
     "back": "Thomas Edison"
   },
   {
@@ -42,5 +42,10 @@
     "text": "Thomas Edison was an American inventor ans business man",
     "cloze": "Thomas Edison",
     "partial": "... was an American inventor ans business man"
+  },
+  {
+    "type": "BasicCard",
+    "front": "Microsoft wascreated by ?",
+    "back": "Bill Gates"
   }
 ]

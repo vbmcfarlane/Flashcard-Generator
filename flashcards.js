@@ -161,11 +161,11 @@ function pickQuestions(card) {
         return selectedCard.front;								 
     } else if (card.type === "ClozeCard") {					 
         selectedCard = new ClozeCard(card.text, card.cloze);
-        console.log( "selected coze card = " + JSON.stringify(selectedCard));
+       // console.log( "selected coze card = " + JSON.stringify(selectedCard));
         console.log("");
      //   return selectedCard.clozeRemoved();	
         cozeQuestion = card.text;
-          console.log(" *** " +  cozeQuestion);	
+         
         return card.text.replace(card.cloze, '...')			 
     }
 };
@@ -182,17 +182,18 @@ function askQuestions() {
                 name: "question"
             }
         ]).then(function (answer) {	
-
+             console.log(answer);
         	//if the users answer equals .back or .cloze of the playedCard run a message "You are correct."
             if (answer.question === deck[count].back || answer.question === deck[count].cloze) {
                 if (answer.question === deck[count].back){ 
                      console.log("Correct!!, the Answer is  " + deck[count].back);
                      console.log("");
+                 } else{}
                 if  (answer.question === deck[count].cloze){
-                    console.log("Correct!!, *** " +  cozeQuestion);
+                    console.log("*** Correct!!, *** " +  cozeQuestion);
                     console.log("");
-                  }
-                }
+                  } else{}
+                
             } else {
             	//check to see if current card is Cloze or Basic
                 if (selectedCard.front !== undefined) {  
